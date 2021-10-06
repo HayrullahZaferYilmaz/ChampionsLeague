@@ -8,6 +8,7 @@ namespace ChampionsLeague
 {
     class Program
     {
+        //...
         public static readonly int _bagNumber = 4;
         public static readonly int _bagCapacity = 8;
         public static readonly int _groupNumber = 8;
