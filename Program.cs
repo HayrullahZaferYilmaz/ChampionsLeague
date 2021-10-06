@@ -12,11 +12,11 @@ namespace ChampionsLeague
         public static readonly int _bagCapacity = 8;
         public static readonly int _groupNumber = 8;
         public static readonly int _groupCapacity = 4;
-        public static readonly int _maxGoal = 9;
+        public static readonly int _maxGoal = 9; //random olarak bellirlenen max gol
         private static readonly Random _rand = new Random();
         private static readonly string[,] _teamAndNation = new string[32, 2] { { "Bayern Munich", "Almanya" }, { "Sevilla", "İspanya" }, { "Real Madrid", "İspanya" }, { "Liverpool", "İngiltere" }, { "Juventus", "İtalya" }, { "Paris Saint-Germain", "Fransa" }, { "Zenit", "Rusya" }, { "Porto", "Portekiz" }, { "Barcelona", "İspanya" }, { "Atlético Madrid", "İspanya" }, { "Manchester City", "İngiltere" }, { "Manchester United", "İngiltere" }, { "Borussia Dortmund", "Almanya" }, { "Shakhtar Donetsk", "Ukrayna" }, { "Chelsea", "İngiltere" }, { "Ajax", "Hollanda" }, { "Dynamo Kiev", "Ukrayna" }, { "Red Bull Salzburg", "Avusturya" }, { "RB Leipzig", "Almanya" }, { "Internazionale", "İtalya" }, { "Olympiacos", "Yunanistan" }, { "Lazio", "İtalya" }, { "Krasnodar", "Rusya" }, { "Atalanta", "İtalya" }, { "Lokomotiv Moskova", "Rusya" }, { "Marseille", "Fransa" }, { "Club Brugge", "Belçika" }, { "Bor. Mönchengladbach", "Almanya" }, { "Galatasaray", "Türkiye" }, { "Midtjylland", "Danimarka" }, { "Rennes", "Fransa" }, { "Ferencváros", "Macaristan" } };
 
-        static void Main(string[] args) //...
+        static void Main(string[] args)
         {
 
             List<Team> teams = new List<Team>();
@@ -118,12 +118,12 @@ namespace ChampionsLeague
                     homeTeam = groups.Where(x => x.Key == p).Select(x => x.Value).First()[i];
                     for (int z = 0; z < _groupCapacity; z++)
                     {
-                        if (z != i)
+                        if (z != i) // kendiyle mac yapmasını engeller
                         {
                             awayTeam = groups.Where(x => x.Key == p).Select(x => x.Value).First()[z];
                             awayGoal = _rand.Next(0, _maxGoal);
-                            awayTeam.Scored += awayGoal;
-                            homeTeam.UnScored += awayGoal;
+                            awayTeam.Scored += awayGoal; // atılan gol
+                            homeTeam.UnScored += awayGoal; // yenilen gol
                             homeGaol = _rand.Next(0, _maxGoal);
                             homeTeam.Scored += homeGaol;
                             awayTeam.UnScored += homeGaol;
